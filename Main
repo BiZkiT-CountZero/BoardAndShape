@@ -1,0 +1,28 @@
+ackage com.gmail.bizkit245;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Point a = new Point(1, 3);
+		Point b = new Point(3, 2);
+		Point c = new Point(4, 9);
+		Point d = new Point(1, 4);
+
+		Circle myCircle = new Circle(a, b);
+		Triangle myTriangle = new Triangle(a, b, c);
+		Rectangle myRectangle = new Rectangle(a, b, d, c);
+		Board myBoard = new Board();
+
+		myBoard.addShape(myCircle, 1);
+		myBoard.addShape(myTriangle, 2);
+		myBoard.addShape(myRectangle, 3);
+		
+		System.out.println(myBoard);
+		
+		myBoard.removeFromBoard(3);
+		
+		System.out.println(myBoard);
+	}
+
+}
