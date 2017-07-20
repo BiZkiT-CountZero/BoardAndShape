@@ -1,0 +1,48 @@
+ackage com.gmail.bizkit245;
+
+public class Board {
+
+	private Shape[] board = new Shape[4];
+
+	public Board() {
+		super();
+	}
+
+	public void addShape(Shape a, int position) {
+		if ((position - 1 >= 0) && (position - 1 < board.length) && (board[position - 1] == null)) {
+			board[position - 1] = a;
+		} else {
+			System.out.println("Error add's Shape");
+		}
+	}
+
+	public void removeFromBoard(int position) {
+		if (position - 1 >= 0 && position - 1 < board.length && board[position - 1] != null) {
+			board[position - 1] = null;
+			System.out.println("Shape removed");
+		} else {
+			System.out.println("Wrong position");
+		}
+	}
+
+	@Override
+	public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+
+		double boardArea = 0;
+		for (int i = 0; i < board.length; i++) {
+			if (board[i] != null) {
+				sb.append(((i + 1) + ") " + board[i]));
+				boardArea += board[i].calculateArea();
+			} else {
+				sb.append((i + 1) + ") " + "Empty");
+
+			}
+			sb.append(System.lineSeparator());
+		}
+		sb.append("Board Area = " + boardArea);
+		return sb.toString();
+	}
+
+}
