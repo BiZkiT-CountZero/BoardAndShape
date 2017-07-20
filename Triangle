@@ -1,0 +1,45 @@
+package com.gmail.bizkit245;
+
+public class Triangle extends Shape {
+
+	private Point a;
+	private Point b;
+	private Point c;
+
+	public Triangle(Point a, Point b, Point c) {
+		super();
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+
+	public Triangle() {
+		super();
+	}
+
+	@Override
+	double calculatePerimetr() {
+
+		return a.getDistance(b) + b.getDistance(c) + c.getDistance(a);
+	}
+
+	@Override
+	double calculateArea() {
+
+		double a1 = a.getDistance(b);
+		double b1 = b.getDistance(c);
+		double c1 = c.getDistance(a);
+		
+		double semiperimetr = this.calculatePerimetr() / 2.0;
+
+		return Math.sqrt(semiperimetr * (semiperimetr - a1) * (semiperimetr - b1) * 
+				(semiperimetr - c1));
+
+	}
+
+	@Override
+	public String toString() {
+		return "Triangle [a=" + a + ", b=" + b + ", c=" + c + "]";
+	}
+
+}
